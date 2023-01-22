@@ -1,0 +1,78 @@
+ let navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-300px";
+      }
+      
+      
+      // Animations
+      let tl = gsap.timeline({defaults: {duration: 2}})
+      tl.from('nav', {y: '-100px', opacity: 0, ease: 'bounce'})
+      tl.to('a', {stagger: 1}, '<.5s')
+      
+      
+      // Dropdown menu
+      const dropDown = document.querySelector('.more')
+      const dropdownContent = document.querySelector('.dropdown-content')
+      const arrow = document.querySelector('.fa-angle-down')
+      // Event listener
+      // dropDown.addEventListener('mouseover', (e) => {
+      //   let target = e.target
+      //   if (target.matches('a')) {
+      //     dropdownContent.style.display = 'block'
+      //     gsap.to('.fa-angle-down', {rotation: '180deg'})
+      //   }
+      // })
+    
+      
+      // window.addEventListener('click', () => {
+      //   if (dropdownContent.style.display === 'block') {
+      //     dropdownContent.style.display = 'none'
+      //      gsap.to('.fa-angle-down', {rotation: '0'})
+      //   } else {
+      //     dropdownContent.style.display = 'block'
+      //   }
+      // })
+      
+      // Change color of navbar when user starts to scroll
+      const navBar = document.querySelector('nav')
+      const toBeObserved = document.querySelectorAll('.observation')
+      
+      
+      // const scrollYAxis = () => {
+      //   let y = window.scrollY
+      //   if (y >= 800) {
+      //     navBar.classList.add('.active')
+      //   } else {
+      //     navBar.classList.remove('.active')
+      //   }
+      // }
+      
+      // window.addEventListener('scroll', scrollYAxis)
+      
+      // Intersection observer
+      const observer = new IntersectionObserver(entries =>{
+        entries.forEach(entry => {
+          navBar.classList.add('active')
+          // if (!entry.target.isIntersecting) {
+          //   observer.unobserve(entry.target)
+          // }
+          console.log(entry)
+     
+        })
+      }, {
+        threshold: 0.5
+      })
+      
+      observer.observe(toBeObserved)
+      
+      
+      // For events
+      // let recentContainer = document.getElementById('recent-container')
+      // for (let i = 0; i < 20; i++) {
+      //   let recentItem = document.createElement('div')
+      //   recentItem.classList.add('recent-item')
+      //   recentContainer.appendChild(recentItem)
+      // }
