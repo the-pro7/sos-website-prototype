@@ -21,6 +21,11 @@
   --nav-link-col-white: rgb(255, 255, 255);
 }
 
+
+img {
+  max-width: 100%;
+}
+
 /*Modal box*/
 .cookie-box {
   position: fixed;
@@ -104,7 +109,7 @@ body * h2 {
   font-family: var(--font-family-h2);
 }
 
-body * p{
+body * p {
   font-family: var(--para-ff);
 }
 
@@ -336,18 +341,13 @@ nav .fa {
     margin-right: 15px;
   }
 
-  .enroll h2, .sub_text h2 {
-    font-size: 24px;
-  }
-  
-  .sub_text h2 {
-    text-align: center;
-  }
 
   .footer {
-    padding-bottom: 1px;
+    padding-bottom: 0.1em;
   }
 }
+
+
 
 .more_info {
   background-image: linear-gradient(
@@ -592,11 +592,11 @@ h3 {
 
 .sub-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  flex-direction: row-reverse;
-  margin: 0 auto 50px;
-  width: auto;
+  gap: 0.5em;
+  margin: 0 auto 2em;
+  width: 80%;
   background-position: center;
   /*Fall back background*/
   background: linear-gradient(to right, #343a40, #adb5bd);
@@ -606,10 +606,21 @@ h3 {
   /*margin: 0 auto;*/
 }
 
+.sub_text {
+  display: inherit;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
+  /* border: thick solid var(--color-primary); */
+}
+
 .sub-box > .sub_text h2 {
   color: var(--color-fff);
-  width: 500px;
-  /*text-align: justify;*/
+  width: auto;
+  font-size: clamp(0.5rem, 1.5rem, 2rem);
+  padding: 0.5em;
+  text-align: center;
 }
 
 /*Image*/
@@ -618,9 +629,7 @@ h3 {
   height: 300px;
   /*justify-self: right;*/
 }
-.sub-box >* {
-  margin: 0 0 0 50px;
-}
+
 
 /*Sub now button*/
 div > .sub-btn {
@@ -660,9 +669,10 @@ div > .sub-btn:hover {
 }
 
 .enroll h2 {
-  color: rgb(255, 255, 255);
+  color: var(--color-fff);
   margin-bottom: 40px;
-  padding: 0;
+  padding: 0.5em;
+
 }
 
 /*For button in enroll box*/
@@ -770,4 +780,23 @@ div > .sub-btn:hover {
   color: rgb(255, 255, 255);
 }
 
+
+@media screen and (min-width: 790px) {
+  .sub-box {
+    /* border: 2px solid orange !important; */
+    display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   /* align-items: center; */
+   place-items: center;
+  }
+
+  .sub-box > .sub_text {
+    display: flex;
+    /* place-items: center; */
+  }
+
+  .sub-box > figure img {
+    margin-right: 1em;
+  }
+}
 

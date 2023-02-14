@@ -5,7 +5,7 @@
       }
       // Hide menu when user clicks the close button while the menu  is open
       const hideMenu = () => {
-        navLinks.style.right = "-300px";
+        navLinks.style.right = "-500px";
       }
       
       
@@ -46,6 +46,13 @@
       const navBar = document.querySelector('nav')
       const image = document.querySelector('nav a img')
       const arrowDown = document.querySelector('.fa-angle-down')
+      const menuIcon = document.getElementById('menu-icon')
+      console.log(menuIcon)
+      // Selecting all nav links (the anchor tags)
+      // Change color of nav links => mobile view
+      let navItems = document.querySelectorAll('.nav_link')
+      console.log(navItems)
+     
       
       // Options
         const headerTextOptions = {
@@ -58,13 +65,21 @@
           navBar.classList.add('nav-scrolled')
           image.src = 'logo2.png'
           arrowDown.style.color = 'var(--color-primary)'
+          menuIcon.style.color = 'var(--color-primary)'
+          // Change color of nav lin
+          navItems.forEach(item => {
+            item.style.color = 'var(--color-fff)'
+            console.log(item)
+          })
           } else {
             navBar.classList.remove('nav-scrolled')
             image.src = 'logo.png'
             arrowDown.style.color = 'var(--nav-link-col-white)'
+            menuIcon.style.color = 'var(--color-fff)'
           }
         })
       }, headerTextOptions)
+
       
       // observer
         headerTextObserver.observe(headerText)
@@ -73,9 +88,18 @@
       let cookieBox = document.querySelector('.cookie-box')
       window.addEventListener('load', () => {
         cookieBox.style.display = 'block'
-        let header = document.querySelector('header')
+        // let header = document.querySelector('header')
         let sections = document.querySelectorAll('section')
-        sections.style.pointerEvents = 'none'
+        console.log(sections)
+        // if (cookieBox.style.display = 'block') {
+        //   sections.forEach(section => {
+        //     section.style.pointerEvents = 'none'
+        //   })
+        // } else {
+        //   sections.forEach(section => {
+        //     section.style.pointerEvents = 'auto'
+        //   })
+        // }
       })
       
       // Accept Cookies
